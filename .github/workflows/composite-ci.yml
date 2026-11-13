@@ -1,0 +1,26 @@
+name: React Composite Action CI
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  react-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout React Repository
+        uses: actions/checkout@v4
+
+      - name: Run Shared React Composite Action
+        uses: ishika-learning-lab/shared-github-actions/react-build@v1
